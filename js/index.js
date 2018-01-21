@@ -1,20 +1,6 @@
 /**
  * Created by aaron.goshine on 19/02/15.
  */
-// datepart: 'y', 'm', 'w', 'd', 'h', 'n', 's'
-
-var dateDiff = function (datepart, fromdate, todate) {
-  datepart = datepart.toLowerCase();
-  var diff = todate - fromdate;
-  var divideBy = {
-    'w': 604800000,
-    'd': 86400000,
-    'h': 3600000,
-    'm': 60000,
-    's': 1000
-  };
-  return Math.floor(diff / divideBy[datepart]);
-};
 
 var getData = function (path, cb) {
   var xhttp = new XMLHttpRequest();
@@ -28,20 +14,19 @@ var getData = function (path, cb) {
 };
 
 var dataHandler = function (responseData) {
+  var grid = document.getElementById('grid');
+  grid.innerHTML = '';
   for (var proj in responseData) {
     if (proj === 'end') continue;
     var data = responseData[proj];
-    for (var i = 0; i < data.length; i++) {
-      var reltime = new Date(data[i].time);
-      var now = Date.now();
-      var elaspe = dateDiff('m', reltime, now);
-      if (elaspe < 60) {
-        document.getElementById(data[i].name).innerHTML = elaspe + ' mins ago';
-      } else if (elaspe > 60 && elaspe < (60 * 24)) {
-        document.getElementById(data[i].name).innerHTML = Math.ceil(elaspe / 60) + ' hours ago';
-      } else {
-        document.getElementById(data[i].name).innerHTML = Math.ceil(elaspe / (60 * 24)) + ' days ago';
-      }
+    for (var i = 0; i < data.length - 1; i++) {
+      var pt = document.getElementById('paneltpl');
+      pt.content.querySelectorAll('h2')[0].textContent = proj;
+      pt.content.querySelectorAll('.console')[0].textContent = data[i].rdate;
+      pt.content.querySelectorAll('.tags')[0].textContent = data[i].tags;
+      pt.content.querySelectorAll('.author')[0].textContent = data[i].author;
+      var clone = document.importNode(pt.content, true);
+      grid.appendChild(clone);
     }
   }
 };

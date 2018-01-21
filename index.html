@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <title>onEnter Frame</title>
+    <title>Chop releases</title>
     <style>
       * {
         font-family: arial;
@@ -10,7 +10,6 @@
         text-align: center;
       }
       body {
-
         background: #353535;
       }
 
@@ -31,74 +30,30 @@
       }
 
       .console {
-        font-size: 3em;
+        font-size: 2em;
       }
 
       h2 {
         margin-bottom: 10px;
         color: darkseagreen;
       }
-
     </style>
   </head>
   <body>
-    <h1> Time since the last release </h1>
-    <div class="grid">
+    <template class="templet" id="paneltpl" >
       <div class="panel">
-        <h2>Raider API </h2>
-        <div class="console" id="raider-api"></div>
+        <h2>Project</h2>
+        <div class="console"></div>
+        <div>
+          <p class="tags"></p>    
+          <p class="author"></p>
+        </div>
       </div>
+    </template>
 
-      <div class="panel">
-        <h2>Raider Scraper </h2>
-        <div class="console" id="raider-api-scraper"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider Last green build </h2>
-        <div class="console" id="raider-api-green-build"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider Admin </h2>
-        <div class="console" id="raider-admin"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider Admin green build </h2>
-        <div class="console" id="raider-admin-green-build"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider Adroid </h2>
-        <div class="console" id="raider-android"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider IOS </h2>
-        <div class="console" id="raider-ios"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider IOS green build </h2>
-        <div class="console" id="raider-ios-green-build"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider Orders </h2>
-        <div class="console" id="raider-orders"></div>
-      </div>
-
-      <div class="panel">
-        <h2>Raider Orders green build</h2>
-        <div class="console" id="raider-orders-green-build"></div>
-      </div>
-
-      <div class="panel"> <h2>Raider Website</h2>
-        <div class="console" id="raider-website"></div>
-      </div>
-    </div>
-
+    <h1>Chop chop release</h1>
+    <div class="grid" id="grid"></div>
+    <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/index.js"></script>
   </body>
 </html>
