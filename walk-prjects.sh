@@ -1,5 +1,4 @@
 #!/bin/bash
-
 declare -a projects=(
 "raider-admin"
 "raider-android"

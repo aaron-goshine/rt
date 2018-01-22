@@ -1,7 +1,3 @@
-/**
- * Created by aaron.goshine on 19/02/15.
- */
-
 var getData = function (path, cb) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {

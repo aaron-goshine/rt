@@ -1,5 +1,4 @@
 #! /bin/bash
-
 project=$(basename `pwd`)
 function glt  {
   git log --tags  --simplify-by-decoration --pretty="format:{\"date\":\"%ai\",\
@@ -10,7 +9,5 @@ function glt  {
 echo "["
 glt "-top" | head -n 1
 glt "-scpr" | egrep "scraper" | head -n1
-glt "-green-build" | egrep "lastGreenBuild" | head -n 1
+# glt "-green-build" | egrep "lastGreenBuild" | head -n 1
 echo "null]"
-
-
